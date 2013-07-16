@@ -3,7 +3,7 @@ import sys
 import codecs
 
 def main():
-  sys.stdout = codecs.getwriter('utf8')(sys.stdout)
+	sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 	url = 'http://www.ieee.org/about/news/index.html'
 	page = parse(url).getroot()
 	thediv = page.cssselect('div.box-lc-indent')[1][1]
