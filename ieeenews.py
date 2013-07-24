@@ -8,6 +8,12 @@ def main():
 	htt = []
 	conn = sqlite3.connect('./database/news.db')
 	c = conn.cursor()
+	c.executescript(
+	"""DROP TABLE IF EXISTS news;
+	CREATE TABLE IF NOT EXISTS `news`(
+	headings text not null,
+	hlink text not null
+	);""")
 	sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 	url = 'http://www.ieee.org/about/news/index.html'
 	page = parse(url).getroot()
